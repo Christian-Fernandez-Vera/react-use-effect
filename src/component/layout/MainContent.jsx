@@ -1,7 +1,8 @@
+import NotePad from "../exercises/NotePad";
 
 
 export default function MainContent() {
   return (
-    <div>MainContent</div>
+    < NotePad />
   )
 }
