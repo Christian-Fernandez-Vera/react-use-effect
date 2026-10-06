@@ -39,13 +39,13 @@ export default function NotePad() {
     setText("");
     try {
       localStorage.removeItem(STORAGE_KEY);
-    } catch {
+    } catch (error) {
       console.error("Error al pulire localStorage:", error);
     }
   };
 
   return (
-    <div className="max-w-cl mx-auto p-6 bg-slate-900 border-slate-800 rounded-xl shadow-lg text-slate-100">
+    <div className="max-w-xl mx-auto p-6 bg-slate-900 border-slate-800 rounded-xl shadow-lg text-slate-100">
       <h2 className="text-xl font-bold mb-4 text-emerald-400">
         Blocco Note Persistente
       </h2>
@@ -57,6 +57,26 @@ export default function NotePad() {
         rows={6}
         className="w-full p-3 rounded-lg bg-slate-800 border border-slate-700 text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono text-sm resize-none"
       />
+
+      <div className="flex items-center justify-between mt-3 text-sm">
+        <span className="text-slate-400">Totale caratteri: <strong className="text-emerald-400">{charCount}</strong>
+        </span>
+
+        <button
+          type="button"
+          onClick={handleClear}
+          className="px-4 py-1.5 bg-rose-600/20 text-rose-300 border border-rose-600/40 rounded-lg hover:bg-rose-600/30 transition-colors duration-150 text-xs font-semibold"
+        >
+          Svuota
+        </button>
+      </div>
     </div>
   );
 }
+
+
+
+
+
+
+
